@@ -7,6 +7,7 @@ import Purchase from './Page/Purchase/Purchase';
 import Dashboard from './Page/Dashboard/Dashboard';
 import Login from './Page/Login/Login';
 import Blog from './Page/Blog/Blog';
+import SingUp from './Page/Login/SingUp';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/Dashbord" element={<Dashboard></Dashboard>}></Route>
                 <Route path="/blog" element={<Blog></Blog>}></Route>
                 <Route path="/Login" element={<Login></Login>}></Route>
+                <Route path="/singup" element={<SingUp></SingUp>}></Route>
             </Routes>
         </Navbar>
     </div>

@@ -30,7 +30,7 @@ const Business = () => {
     return (
         <div>
             <h1 className='text-3xl text-center font-bold mt-10'>Our Servise</h1>
-           <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-10 justify-items-center bg-accent mt-14'>
+           <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-10 justify-items-center bg-secondary mt-14'>
            {
                 business.map(business=><Businesses key={business._id} business={business}></Businesses>)
             }
