@@ -3,7 +3,7 @@ import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loding from './Loding';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -14,6 +14,7 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+      const navigate = useNavigate()
       let userErorr
       if(loading || gLoading){
         return <Loding></Loding>
@@ -27,6 +28,7 @@ const Login = () => {
     const onSubmit = data => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password)
+        navigate('/Purchase')
     };
     return (
         <div className='flex h-screen justify-center items-center'>
