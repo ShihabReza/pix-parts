@@ -28,7 +28,7 @@ const Login = () => {
     const onSubmit = data => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password)
-        navigate('/Purchase')
+        navigate('/')
     };
     return (
         <div className='flex h-screen justify-center items-center'>

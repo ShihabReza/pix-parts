@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Service = ({product}) => {
     const {name,img,description,minimumOrderQuantity,availableQuantity,price} = product
@@ -13,7 +14,8 @@ const Service = ({product}) => {
                 <p className='text-2xl font-bold'>${price}</p>
 
                 <div className="card-actions justify-end">
-                <button className="btn btn-primary w-full">book now</button>
+                
+                <Link className='w-full' to="/Purchase"><button className="btn btn-secondary w-full">book now</button></Link>
                 </div>
             </div>
         </div>

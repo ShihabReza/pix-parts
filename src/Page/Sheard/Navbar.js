@@ -12,7 +12,7 @@ const Navbar = ({children}) => {
     const menuItems = <>
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/Purchase'>Purchase</Link></li>
-    <li><Link to='/Dashbord'>Dashbord</Link></li>
+    {user && <li><Link to='/Dashbord'>Dashbord</Link></li>}
     <li><Link to='/blog'>Contact Us</Link></li>
     <li>{user?<button onClick={logout} class="btn btn-outline">Logout</button>
  :<Link to='/Login'>Login</Link>}</li>

@@ -8,6 +8,10 @@ import Dashboard from './Page/Dashboard/Dashboard';
 import Login from './Page/Login/Login';
 import Blog from './Page/Blog/Blog';
 import SingUp from './Page/Login/SingUp';
+import RequireAuth from './Page/Login/RequireAuth';
+import MyOrders from './Page/Dashboard/MyOrders';
+import AddReview from './Page/Dashboard/AddReview';
+import MyProfile from './Page/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -15,8 +19,18 @@ function App() {
         <Navbar>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
-                <Route path="/Purchase" element={<Purchase></Purchase>}></Route>
-                <Route path="/Dashbord" element={<Dashboard></Dashboard>}></Route>
+                <Route path="/Purchase" element={<RequireAuth>
+                  <Purchase></Purchase>
+                </RequireAuth>}>
+                
+                </Route>
+                <Route path="/Dashbord" element={<RequireAuth>
+                  <Dashboard></Dashboard>
+                </RequireAuth>}>
+                  <Route index element={<MyProfile></MyProfile>}></Route>
+                  <Route path='AddReview' element={<AddReview></AddReview>}></Route>
+                  <Route path='MyOrders' element={<MyOrders></MyOrders>}></Route>
+                </Route>
                 <Route path="/blog" element={<Blog></Blog>}></Route>
                 <Route path="/Login" element={<Login></Login>}></Route>
                 <Route path="/singup" element={<SingUp></SingUp>}></Route>
