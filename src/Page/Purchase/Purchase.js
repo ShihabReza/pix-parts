@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { useAuthState} from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Purchase = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -9,6 +11,7 @@ const Purchase = () => {
         
         
     };
+    const [user, loading, error] = useAuthState(auth);
     const {id} = useParams ()
     
     const [product,setProduct] = useState ({})
@@ -20,7 +23,7 @@ const Purchase = () => {
         
         
         
-    },[id])
+    },[])
     return (
         <div className='flex'>
             <div className="card w-96 ml-8 shadow-xl flex ">
@@ -135,7 +138,7 @@ const Purchase = () => {
                         <span class="label-text">quantity</span>
                             
                         </label>
-                        <input type="number" placeholder="quantity" class="input input-bordered w-full max-w-xs" 
+                        <input type="number" placeholder="quantity" min={product.minimumOrderQuantity} max={product.availableQuantity} class="input input-bordered w-full max-w-xs" 
                         {...register("ratings ", {
                             required:{
                                 value:true,

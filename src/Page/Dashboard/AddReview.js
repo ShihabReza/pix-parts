@@ -7,14 +7,24 @@ const AddReview = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit =async data => {
         console.log(data)
-        
-        
+        const url = `http://localhost:5000/revew`
+        fetch(url,{
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+        .then(res=>res.json())
+        .then(results=>{
+            console.log(results)
+        })
     };
 
      
     return (
-        <div>
-            <h1>Add A new revew Review</h1>
+        <div className="mt-10">
+            <h1 className='text-4xl font-bold'>Add A new revew Review</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                         <div class="form-control w-full max-w-xs">
                         <label class="label">
@@ -69,7 +79,7 @@ const AddReview = () => {
                         
                        
                         
-                        <button class="btn btn-secondary ">add</button>
+                        <button class="btn btn-secondary mt-1">Add Revew</button>
                         </form>
         </div>
     );

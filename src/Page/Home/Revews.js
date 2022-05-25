@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import firstImg from '../../Img/images/Ellipse 90.png';
 import seondImg from '../../Img/images/Ellipse 91.png';
 import therdImg from '../../Img/images/Ellipse 92.png';
 import Revew from './Revew';
 
 const Revews = () => {
+    const [revews, setRevews] = useState ([])
+    useEffect( () =>{
+        fetch('http://localhost:5000/revew')
+        .then(res => res.json())
+        .then(data=>setRevews(data))
+    },[])
     const reviews = [
         {
             _id: 1,
@@ -36,7 +42,7 @@ const Revews = () => {
             
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 justify-items-center mt-28">
                 {
-                    reviews.map(review=><Revew key={review._id} review={review}></Revew>)
+                    revews.map(review=><Revew key={review._id} review={review}></Revew>)
                 }
             </div>
         </div>
