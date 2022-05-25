@@ -10,7 +10,14 @@ const Revew = ({review}) => {
                     <p>{revew}</p>
                     <p>{reting}</p>
                     <div className="card-actions justify-end">
-                   
+                    <div class="rating">
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+</div>
+                    
                     </div>
                 </div>
             </div>

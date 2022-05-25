@@ -10,7 +10,7 @@ const Revews = () => {
             _id: 1,
             name: 'Nash Patrik',
             img: firstImg,
-            revew:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+            revew:'New Air Force white shoes I bought for my son unraveled after about 2 months. Very bad shoes. I went to and pics and the customer sevice',
             reting:5,
 
         },
@@ -18,7 +18,7 @@ const Revews = () => {
             _id: 2,
             name: 'Miriam Barron',
             img: seondImg,
-            revew:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+            revew:'New Air Force white shoes I bought for my son unraveled after about 2 months. Very bad shoes. I went to and pics and the customer sevice',
             reting:5,
 
         },
@@ -26,8 +26,8 @@ const Revews = () => {
             _id: 3,
             name: 'Bria Malone',
             img: therdImg,
-            revew:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
-            reting:5,
+            revew:'New Air Force white shoes I bought for my son unraveled after about 2 months. Very bad shoes. I went to and pics and the customer sevice',
+            reting:2,
 
         },
     ]

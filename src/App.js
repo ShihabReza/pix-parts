@@ -12,6 +12,7 @@ import RequireAuth from './Page/Login/RequireAuth';
 import MyOrders from './Page/Dashboard/MyOrders';
 import AddReview from './Page/Dashboard/AddReview';
 import MyProfile from './Page/Dashboard/MyProfile';
+import NotFound from './Page/Sheard/NotFound';
 
 function App() {
   return (
@@ -19,11 +20,14 @@ function App() {
         <Navbar>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
-                <Route path="/Purchase" element={<RequireAuth>
+                <Route path="/Purchase/:id" element={<RequireAuth>
                   <Purchase></Purchase>
+                  
                 </RequireAuth>}>
+                  
                 
                 </Route>
+                
                 <Route path="/Dashbord" element={<RequireAuth>
                   <Dashboard></Dashboard>
                 </RequireAuth>}>
@@ -34,6 +38,8 @@ function App() {
                 <Route path="/blog" element={<Blog></Blog>}></Route>
                 <Route path="/Login" element={<Login></Login>}></Route>
                 <Route path="/singup" element={<SingUp></SingUp>}></Route>
+                
+                <Route path='*'element={<NotFound></NotFound>}></Route>
             </Routes>
         </Navbar>
     </div>

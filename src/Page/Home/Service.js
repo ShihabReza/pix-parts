@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Service = ({product}) => {
-    const {name,img,description,minimumOrderQuantity,availableQuantity,price} = product
+    const {name,img,description,minimumOrderQuantity,availableQuantity,price,_id} = product
+    const navigate = useNavigate()
+    const hendelButton = id =>{
+    
+        navigate(`/Purchase/${id}`)
+        console.log(id)
+        
+    }
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure><img src={img} alt="Shoes" /></figure>
@@ -15,7 +22,7 @@ const Service = ({product}) => {
 
                 <div className="card-actions justify-end">
                 
-                <Link className='w-full' to="/Purchase"><button className="btn btn-secondary w-full">book now</button></Link>
+                <Link className='w-full' to="/Purchase"><button onClick={()=>hendelButton(_id)} className="btn btn-secondary w-full">book now</button></Link>
                 </div>
             </div>
         </div>
