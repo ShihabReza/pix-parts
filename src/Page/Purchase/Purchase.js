@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
 const Purchase = () => {
-    
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const onSubmit =async data => {
+        console.log(data)
+        
+        
+    };
     const {id} = useParams ()
     
     const [product,setProduct] = useState ({})
@@ -16,7 +22,8 @@ const Purchase = () => {
         
     },[id])
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className='flex'>
+            <div className="card w-96 ml-8 shadow-xl flex ">
         <figure><img src={product.img} alt="Shoes" /></figure>
         <div className="card-body">
             <h2 className="card-title font-bold">{product.name}</h2>
@@ -27,7 +34,133 @@ const Purchase = () => {
 
             
         </div>
-    </div>
+       
+            </div>
+            <div className='w-50 mx-auto mt-40'>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                        <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                        <span class="label-text">name</span>
+                            
+                        </label>
+                        <input type="text" placeholder="name" class="input input-bordered w-full max-w-xs" 
+                        {...register("name", {
+                            required:{
+                                value:true,
+                                message:'name is required',
+                            },
+                            // pattern: {
+                            //     value: /[A-Za-z]{3}/,
+                            //     message: 'provide is valid email' 
+                            //   }
+                          })}
+                        />
+
+                        
+
+                        
+                        
+
+                        <label class="label">
+                        {errors.description?.type === 'description' && <span class="label-text-alt text-red-500">{errors.description.message}</span>}
+                        {errors.description?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.description.message}</span>}
+                            
+                            
+                        </label>
+                        </div> 
+
+                        <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                        <span class="label-text">email</span>
+                            
+                        </label>
+                        <input type="email" placeholder="email" class="input input-bordered w-full max-w-xs" 
+                        {...register("email", {
+                            required:{
+                                value:true,
+                                message:'email is required',
+                            },
+                            // pattern: {
+                            //     value: /[A-Za-z]{3}/,
+                            //     message: 'provide is valid email' 
+                            //   }
+                          })}
+                        />
+
+                        
+
+                        
+                        
+
+                        <label class="label">
+                        {errors.email?.type === 'description' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
+                        {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
+                            
+                            
+                        </label>
+                        </div> 
+
+                        <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                        <span class="label-text">phone</span>
+                            
+                        </label>
+                        <input type="phone" placeholder="description" class="input input-bordered w-full max-w-xs" 
+                        {...register("phone", {
+                            required:{
+                                value:true,
+                                message:'phone is required',
+                            },
+                            // pattern: {
+                            //     value: /[A-Za-z]{3}/,
+                            //     message: 'provide is valid email' 
+                            //   }
+                          })}
+                        />
+
+                        
+
+                        
+                        
+
+                        <label class="label">
+                        {errors.description?.type === 'phone' && <span class="label-text-alt text-red-500">{errors.phone.message}</span>}
+                        {errors.description?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.phone.message}</span>}
+                            
+                            
+                        </label>
+                        </div> 
+                        <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                        <span class="label-text">quantity</span>
+                            
+                        </label>
+                        <input type="number" placeholder="quantity" class="input input-bordered w-full max-w-xs" 
+                        {...register("ratings ", {
+                            required:{
+                                value:true,
+                                message:'ratings  is required',
+                            },
+                           
+                          })}
+                        />
+                        
+
+                        
+                        
+
+                      
+                        </div>   
+                        <input/>
+                        
+                       
+                        
+                       
+                        
+                        <button class="btn btn-secondary ">add</button>
+                        </form>
+            </div>
+        </div>
        
     );
 };
