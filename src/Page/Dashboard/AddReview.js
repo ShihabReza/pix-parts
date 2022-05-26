@@ -24,7 +24,7 @@ const AddReview = () => {
      
     return (
         <div className="mt-10">
-            <h1 className='text-4xl font-bold'>Add A new revew Review</h1>
+            <h1 className='text-4xl font-bold'>Add A New Review</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                         <div class="form-control w-full max-w-xs">
                         <label class="label">

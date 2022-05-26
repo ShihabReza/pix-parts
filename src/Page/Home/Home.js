@@ -8,6 +8,7 @@ import Revews from './Revews';
 
 
 import Services from './Services';
+import Spacal from './Spacal';
 
 const Home = () => {
     
@@ -17,6 +18,7 @@ const Home = () => {
             <Info></Info>
             <Services></Services>
             <Business></Business>
+            <Spacal></Spacal>
             <Revews></Revews>
             <Footer></Footer>
             

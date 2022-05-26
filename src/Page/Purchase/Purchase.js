@@ -160,7 +160,7 @@ const Purchase = () => {
                         
                        
                         
-                        <button class="btn btn-secondary ">add</button>
+                        <button class="btn btn-secondary mt-2">Purchase</button>
                         </form>
             </div>
         </div>

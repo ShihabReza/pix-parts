@@ -22,7 +22,7 @@ const Service = ({product}) => {
 
                 <div className="card-actions justify-end">
                 
-                <Link style={{border: '1px solid black', backgroundColor:'black',color:'white',padding:'15px',width:'100%', textAlign:'center',borderRadius:'5px',}} to={`/Purchase/${_id}`}>Book Now</Link>
+                <Link style={{border: '1px solid black', backgroundColor:'#111430',color:'white',padding:'15px',width:'100%', textAlign:'center',borderRadius:'5px',}} to={`/Purchase/${_id}`}>Book Now</Link>
                 </div>
             </div>
         </div>
