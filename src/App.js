@@ -13,6 +13,7 @@ import MyOrders from './Page/Dashboard/MyOrders';
 import AddReview from './Page/Dashboard/AddReview';
 import MyProfile from './Page/Dashboard/MyProfile';
 import NotFound from './Page/Sheard/NotFound';
+import About from './Page/About/About';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
                   <Route path='MyOrders' element={<MyOrders></MyOrders>}></Route>
                 </Route>
                 <Route path="/blog" element={<Blog></Blog>}></Route>
+                <Route path="/about" element={<About></About>}></Route>
                 <Route path="/Login" element={<Login></Login>}></Route>
                 <Route path="/singup" element={<SingUp></SingUp>}></Route>
                 
