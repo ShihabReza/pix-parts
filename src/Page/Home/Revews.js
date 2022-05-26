@@ -41,7 +41,7 @@ const Revews = () => {
     ]
     return (
         <div>
-            
+            <h1 className='text-4xl text-center font-bold'>Revew</h1>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 justify-items-center mt-28">
                 {
                     revews.map(review=><Revew key={review._id} review={review}></Revew>)

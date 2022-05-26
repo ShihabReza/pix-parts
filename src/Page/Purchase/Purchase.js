@@ -46,7 +46,7 @@ const Purchase = () => {
                         <span class="label-text">name</span>
                             
                         </label>
-                        <input type="text" placeholder="name" class="input input-bordered w-full max-w-xs" 
+                        <input type="text" disabled value={user?.displayName} class="input input-bordered w-full max-w-xs" 
                         {...register("name", {
                             required:{
                                 value:true,
@@ -77,7 +77,7 @@ const Purchase = () => {
                         <span class="label-text">email</span>
                             
                         </label>
-                        <input type="email" placeholder="email" class="input input-bordered w-full max-w-xs" 
+                        <input type="email"disabled value={user?.email} class="input input-bordered w-full max-w-xs" 
                         {...register("email", {
                             required:{
                                 value:true,
@@ -108,7 +108,7 @@ const Purchase = () => {
                         <span class="label-text">phone</span>
                             
                         </label>
-                        <input type="phone" placeholder="description" class="input input-bordered w-full max-w-xs" 
+                        <input type="phone" placeholder="phone" class="input input-bordered w-full max-w-xs" 
                         {...register("phone", {
                             required:{
                                 value:true,
