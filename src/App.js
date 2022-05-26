@@ -14,6 +14,8 @@ import AddReview from './Page/Dashboard/AddReview';
 import MyProfile from './Page/Dashboard/MyProfile';
 import NotFound from './Page/Sheard/NotFound';
 import About from './Page/About/About';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -43,6 +45,7 @@ function App() {
                 
                 <Route path='*'element={<NotFound></NotFound>}></Route>
             </Routes>
+            <ToastContainer />
         </Navbar>
     </div>
   );

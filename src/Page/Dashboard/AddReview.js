@@ -7,7 +7,7 @@ const AddReview = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit =async data => {
         console.log(data)
-        const url = `http://localhost:5000/revew`
+        const url = `https://fathomless-mountain-04571.herokuapp.com/revew`
         fetch(url,{
             method: 'POST',
             headers:{

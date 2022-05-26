@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useAuthState} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Purchase = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -12,27 +14,52 @@ const Purchase = () => {
         
     };
 
-    const hendelBooking = (event) =>{
-        event.preventDefault();
-        const purpose = {
+   
+    
 
-            
-
-        }
-    }
     const [user, loading, error] = useAuthState(auth);
     const {id} = useParams ()
     
     const [product,setProduct] = useState ({})
     useEffect(()=>{
-        const url = `http://localhost:5000/product/${id}`
+        const url = `https://fathomless-mountain-04571.herokuapp.com/product/${id}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setProduct(data))
         
-        
+       
         
     },[])
+
+    const handelClick =(event)=>{
+        event.preventDefault();
+
+       
+
+        const booking = {
+        
+            productId: product._id,
+            productName:product.name,
+            userName: user.displayName,
+            userEmail: user.email,
+            address: event.target.address.value,
+            phone: event.target.phone.value,
+           
+          };
+          
+      fetch("http://localhost:5000/booking", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(booking),
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
+    })
+}
+
     return (
         <div className='flex'>
             <div className="card w-96 ml-8 shadow-xl flex ">
@@ -56,16 +83,7 @@ const Purchase = () => {
                             
                         </label>
                         <input type="text" disabled value={user?.displayName} class="input input-bordered w-full max-w-xs" 
-                        {...register("name", {
-                            required:{
-                                value:true,
-                                message:'name is required',
-                            },
-                            // pattern: {
-                            //     value: /[A-Za-z]{3}/,
-                            //     message: 'provide is valid email' 
-                            //   }
-                          })}
+                        {...register("name")}
                         />
 
                         
@@ -87,16 +105,8 @@ const Purchase = () => {
                             
                         </label>
                         <input type="email"disabled value={user?.email} class="input input-bordered w-full max-w-xs" 
-                        {...register("email", {
-                            required:{
-                                value:true,
-                                message:'email is required',
-                            },
-                            // pattern: {
-                            //     value: /[A-Za-z]{3}/,
-                            //     message: 'provide is valid email' 
-                            //   }
-                          })}
+                        {...register("email"
+                           )}
                         />
 
                         
@@ -118,16 +128,7 @@ const Purchase = () => {
                             
                         </label>
                         <input type="phone" placeholder="phone" class="input input-bordered w-full max-w-xs" 
-                        {...register("phone", {
-                            required:{
-                                value:true,
-                                message:'phone is required',
-                            },
-                            // pattern: {
-                            //     value: /[A-Za-z]{3}/,
-                            //     message: 'provide is valid email' 
-                            //   }
-                          })}
+                        {...register("phone" )}
                         />
 
                         
@@ -142,19 +143,36 @@ const Purchase = () => {
                             
                         </label>
                         </div> 
+                        
+                        <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                        <span class="label-text">Address</span>
+                            
+                        </label>
+                        <input type="text" placeholder="Address" class="input input-bordered w-full max-w-xs" 
+                        {...register("Address" )}
+                        />
+
+                        
+
+                        
+                        
+
+                        <label class="label">
+                        {errors.description?.type === 'Address' && <span class="label-text-alt text-red-500">{errors.Address.message}</span>}
+                        {errors.description?.type === 'Address' && <span class="label-text-alt text-red-500">{errors.Address.message}</span>}
+                            
+                            
+                        </label>
+                        </div>
+
                         <div class="form-control w-full max-w-xs">
                         <label class="label">
                         <span class="label-text">quantity</span>
                             
                         </label>
                         <input type="number" placeholder="quantity" min={product.minimumOrderQuantity} max={product.availableQuantity} class="input input-bordered w-full max-w-xs" 
-                        {...register("ratings ", {
-                            required:{
-                                value:true,
-                                message:'ratings  is required',
-                            },
-                           
-                          })}
+                        {...register("quantity ", )}
                         />
                         
 
@@ -171,6 +189,7 @@ const Purchase = () => {
                         
                         <button class="btn btn-secondary mt-2">Purchase</button>
                         </form>
+                        <ToastContainer />
             </div>
         </div>
        

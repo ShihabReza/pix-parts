@@ -1,12 +1,13 @@
 import React from 'react';
 
 const Revew = ({review}) => {
-    const {name,img,revew,ratings,description}=review;
+    console.log(review.ratings)
+    const {ratings,description}=review;
     return (
             <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={img} alt="Shoes" /></figure>
+                
                 <div className="card-body">
-                    <h2 className="card-title">{name}</h2>
+                   
                     <p>{description}</p>
                     <p>{ratings}</p>
                     <div className="card-actions justify-end">

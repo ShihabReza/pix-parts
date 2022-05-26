@@ -15,7 +15,7 @@ const Navbar = ({children}) => {
     <li><Link to='/blog'>Blog</Link></li>
    
     {user && <li><Link to='/Dashbord'>Dashbord</Link></li>}
-    <li><Link to='/about'>About Me</Link></li>
+   
     <li>{user?<button onClick={logout} class="btn btn-outline">Logout</button>
  :<Link to='/Login'>Login</Link>}</li>
   </>

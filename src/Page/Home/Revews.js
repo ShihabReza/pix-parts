@@ -8,7 +8,7 @@ const Revews = () => {
     const [revews, setRevews] = useState ([])
     console.log(revews)
     useEffect( () =>{
-        fetch('http://localhost:5000/revew')
+        fetch('https://fathomless-mountain-04571.herokuapp.com/revew')
 
         .then(res => res.json())
         .then(data=>setRevews(data))

@@ -4,7 +4,7 @@ import Service from './Service';
 const Services = () => {
     const [product,setProduct] = useState ([])
     useEffect( () =>{
-        fetch('http://localhost:5000/product')
+        fetch('https://fathomless-mountain-04571.herokuapp.com/product')
         .then(res=>res.json())
         .then(data=>setProduct(data))
     },[])
