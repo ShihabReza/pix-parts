@@ -11,6 +11,15 @@ const Purchase = () => {
         
         
     };
+
+    const hendelBooking = (event) =>{
+        event.preventDefault();
+        const purpose = {
+
+            
+
+        }
+    }
     const [user, loading, error] = useAuthState(auth);
     const {id} = useParams ()
     

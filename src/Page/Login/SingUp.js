@@ -32,7 +32,7 @@ const SingUp = () => {
         console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName:data.name});
-        navigate('/Purchase')
+        navigate('/')
     };
     return (
         <div className='flex h-screen justify-center items-center'>
