@@ -7,17 +7,40 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Purchase = () => {
+    const [user, loading, error] = useAuthState(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit =async data => {
+        // console.log(data)
+        
+       const booking = {
+           userId : user.id,
+           name: user.displayName,
+           email: user.email,
+           address: user.address,
+           phone: user.phone,
+          
+       }
+        
+        fetch("https://fathomless-mountain-04571.herokuapp.com/booking", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(booking),
+    })
+    .then(res=>res.json())
+    .then(data=>{
         console.log(data)
-        
-        
+        if(data.success){
+            toast('Success Your Purchase')
+        }
+    })
     };
 
    
     
 
-    const [user, loading, error] = useAuthState(auth);
+   
     const {id} = useParams ()
     
     const [product,setProduct] = useState ({})
@@ -29,36 +52,40 @@ const Purchase = () => {
         
        
         
-    },[])
+    },[id])
 
-    const handelClick =(event)=>{
-        event.preventDefault();
+    
+
+
+    // const handleSubmit =(event)=>{
+    //     event.preventDefault();
 
        
 
-        const booking = {
+    //     const booking = {
         
-            productId: product._id,
-            productName:product.name,
-            userName: user.displayName,
-            userEmail: user.email,
-            address: event.target.address.value,
-            phone: event.target.phone.value,
+    //         productId: product._id,
+    //         productName:product.name,
+    //         userName: user.displayName,
+    //         userEmail: user.email,
+    //         address: event.target.address.value,
+    //         phone: event.target.phone.value,
            
-          };
-          
-      fetch("http://localhost:5000/booking", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(booking),
-    })
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
-    })
-}
+    //       };
+    //       console.log(booking);
+    // fetch("http://localhost:5000/booking", {
+        //     method: "POST",
+        //     headers: {
+        //       "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify(booking),
+        // })
+        // .then(res=>res.json())
+        // .then(data=>{
+        //     console.log(data)
+        // })
+      
+// }
 
     return (
         <div className='flex'>
@@ -71,7 +98,6 @@ const Purchase = () => {
             <p className='text-xl font-bold'>Available Quantity : {product.availableQuantity}</p>
             <p className='text-2xl font-bold'>${product.price}</p>
 
-            
         </div>
        
             </div>
@@ -84,12 +110,8 @@ const Purchase = () => {
                         </label>
                         <input type="text" disabled value={user?.displayName} class="input input-bordered w-full max-w-xs" 
                         {...register("name")}
-                        />
+                      />
 
-                        
-
-                        
-                        
 
                         <label class="label">
                         {errors.description?.type === 'description' && <span class="label-text-alt text-red-500">{errors.description.message}</span>}
@@ -109,10 +131,6 @@ const Purchase = () => {
                            )}
                         />
 
-                        
-
-                        
-                        
 
                         <label class="label">
                         {errors.email?.type === 'description' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
@@ -124,21 +142,17 @@ const Purchase = () => {
 
                         <div class="form-control w-full max-w-xs">
                         <label class="label">
-                        <span class="label-text">phone</span>
+                        <span class="label-phone">phone</span>
                             
                         </label>
-                        <input type="phone" placeholder="phone" class="input input-bordered w-full max-w-xs" 
+                        <input type="tel" value={user?.phone} class="input input-bordered w-full max-w-xs" 
                         {...register("phone" )}
                         />
 
-                        
-
-                        
-                        
 
                         <label class="label">
-                        {errors.description?.type === 'phone' && <span class="label-text-alt text-red-500">{errors.phone.message}</span>}
-                        {errors.description?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.phone.message}</span>}
+                        {errors.description?.type === 'phone' && <span class="label-phone-alt text-red-500">{errors.phone.message}</span>}
+                        {errors.description?.type === 'pattern' && <span class="label-phone-alt text-red-500">{errors.phone.message}</span>}
                             
                             
                         </label>
@@ -149,14 +163,10 @@ const Purchase = () => {
                         <span class="label-text">Address</span>
                             
                         </label>
-                        <input type="text" placeholder="Address" class="input input-bordered w-full max-w-xs" 
-                        {...register("Address" )}
+                        <input type="text" value={user?.address} class="input input-bordered w-full max-w-xs" 
+                        {...register("address" )}
                         />
 
-                        
-
-                        
-                        
 
                         <label class="label">
                         {errors.description?.type === 'Address' && <span class="label-text-alt text-red-500">{errors.Address.message}</span>}
@@ -175,17 +185,9 @@ const Purchase = () => {
                         {...register("quantity ", )}
                         />
                         
-
-                        
-                        
-
                       
                         </div>   
                         <input/>
-                        
-                       
-                        
-                       
                         
                         <button class="btn btn-secondary mt-2">Purchase</button>
                         </form>
