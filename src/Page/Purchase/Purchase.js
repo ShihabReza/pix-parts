@@ -16,8 +16,9 @@ const Purchase = () => {
            userId : user.id,
            name: user.displayName,
            email: user.email,
-           address: user.address,
-           phone: user.phone,
+           address: data.address,
+           phone: data.phone,
+           Quantity:data.quantity
           
        }
         
@@ -182,7 +183,7 @@ const Purchase = () => {
                             
                         </label>
                         <input type="number" placeholder="quantity" min={product.minimumOrderQuantity} max={product.availableQuantity} class="input input-bordered w-full max-w-xs" 
-                        {...register("quantity ", )}
+                        {...register("quantity", )}
                         />
                         
                       

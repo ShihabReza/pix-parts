@@ -18,6 +18,7 @@ const AddReview = () => {
         .then(res=>res.json())
         .then(results=>{
             console.log(results)
+           
         })
     };
 
@@ -58,7 +59,7 @@ const AddReview = () => {
                             
                         </label>
                         <input type="number" placeholder="ratings" class="input input-bordered w-full max-w-xs" 
-                        {...register("ratings ", {
+                        {...register("ratings", {
                             required:{
                                 value:true,
                                 message:'ratings  is required',
