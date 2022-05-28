@@ -1,6 +1,6 @@
 ## Live Site Link
 
-Live Site Link[https://pix-parts.web.app/Dashbord/MyOrders]
+Live Site Link[https://pix-parts.web.app/]
 
 
 ## github Link client
