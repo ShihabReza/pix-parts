@@ -11,14 +11,6 @@ github Link client[https://github.com/programming-hero-web-course1/manufacturer-
 
 github Link client[https://github.com/programming-hero-web-course1/manufacturer-website-server-side-ShihabReza]
 
-## Features
-
-
-- You will find it in different photo packages
-- Details about photos can be crowded
-- Email can be submitted
-- The password can be reset
-- Let's read the blog
 
 ## use this project
 
