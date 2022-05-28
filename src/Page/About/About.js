@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
@@ -10,8 +11,13 @@ const About = () => {
             <p class="py-6 text-lx font-bold">Email : shihabreza457@gmail.com</p>
             <p class="py-6 text-lx font-bold">Educational background : hsc complete</p>
             <p class="py-6 text-lx font-bold">Skills : html, css, javascript, boostrap, tailwindcss, react, nodejs</p>
+            <h1 className='text-xl font-bold mb-4 text-primary'>My Protfolio Website</h1>
+            <a href="https://majestic-llama-335a97.netlify.app/"><button class="btn btn-outline btn-primary m-3">Please Inter</button></a>
+            <a href="https://loquacious-pudding-699268.netlify.app/Home"><button class="btn btn-outline btn-primary m-3">Please Inter</button></a>
+            <a href="https://photo-graphi-9e3aa.web.app/"><button class="btn btn-outline btn-primary m-3">Please Inter</button></a>
             
             </div>
+            
         </div>
         </div>
     
