@@ -7,7 +7,7 @@ const MyOrders = () => {
     const [orders,setOrders] = useState ([])
     useEffect( ()=>{
       if(user){
-        fetch(`http://localhost:5000/booking?email=${user.email}`)
+        fetch(`https://fathomless-mountain-04571.herokuapp.com/booking?email=${user.email}`)
         .then(res=>res.json())
         .then(data =>setOrders(data))
       }
@@ -19,24 +19,28 @@ const MyOrders = () => {
   <table class="table w-full">
    
     <thead>
-      <tr>
+      <tr className='text-center font-bold text-2xl'>
         <th></th>
         <th>Name</th>
         <th>email</th>
         <th>phone</th>
+        
         <th>Quantity</th>
+        
         
       </tr>
     </thead>
     <tbody>
         {
             orders.map(order =>
-                <tr>
+                <tr className='text-center w-full'>
                   <th>*</th>
                   <td>{order.name}</td>
                   <td>{order.email}</td>
                   <td>{order.phone}</td>
+                  
                   <td>{order.Quantity}</td>
+                 
                   
                 </tr>)
         }
