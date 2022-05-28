@@ -24,6 +24,7 @@ const MyOrders = () => {
         <th>Name</th>
         <th>email</th>
         <th>phone</th>
+        <th>Address</th>
         
         <th>Quantity</th>
         
@@ -38,6 +39,7 @@ const MyOrders = () => {
                   <td>{order.name}</td>
                   <td>{order.email}</td>
                   <td>{order.phone}</td>
+                  <td>{order.address}</td>
                   
                   <td>{order.Quantity}</td>
                  
