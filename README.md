@@ -1,11 +1,15 @@
 ## Live Site Link
 
-Live Site Link[https://pix-parts.web.app/Purchase/628bacd1d7bbb2c89d8aa631]
+Live Site Link[https://pix-parts.web.app/Dashbord/MyOrders]
 
 
-## github Link
+## github Link client
 
-github Link[https://github.com/programming-hero-web-course1/manufacturer-website-client-side-ShihabReza]
+github Link client[https://github.com/programming-hero-web-course1/manufacturer-website-client-side-ShihabReza]
+
+## github Link server
+
+github Link client[https://github.com/programming-hero-web-course1/manufacturer-website-server-side-ShihabReza]
 
 ## Features
 
@@ -24,6 +28,6 @@ github Link[https://github.com/programming-hero-web-course1/manufacturer-website
 - firebase use this project
 - google singin use this project
 - Find out about the price of the photo package
-- add revew
+- use node
 - use server
 - use mongodb
