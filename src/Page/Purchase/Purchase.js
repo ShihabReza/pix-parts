@@ -55,39 +55,6 @@ const Purchase = () => {
         
     },[id])
 
-    
-
-
-    // const handleSubmit =(event)=>{
-    //     event.preventDefault();
-
-       
-
-    //     const booking = {
-        
-    //         productId: product._id,
-    //         productName:product.name,
-    //         userName: user.displayName,
-    //         userEmail: user.email,
-    //         address: event.target.address.value,
-    //         phone: event.target.phone.value,
-           
-    //       };
-    //       console.log(booking);
-    // fetch("https://fathomless-mountain-04571.herokuapp.com/booking", {
-        //     method: "POST",
-        //     headers: {
-        //       "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify(booking),
-        // })
-        // .then(res=>res.json())
-        // .then(data=>{
-        //     console.log(data)
-        // })
-      
-// }
-
     return (
         <div className='flex'>
             <div className="card w-96 ml-8 shadow-xl flex ">
